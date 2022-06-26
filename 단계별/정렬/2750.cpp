@@ -1,7 +1,7 @@
 #include <iostream>
 
 void bubbleSort(int*, int);
-void swap(int* arr, int a, int b);
+void swap(int*, int, int);
 
 int main(void) {
 	std::cin.tie(NULL);
