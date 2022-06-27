@@ -3,6 +3,7 @@
 
 struct Pos {
 	int x, y;
+
 	bool operator<(const Pos&) const;
 	bool operator>(const Pos&) const;
 };
@@ -15,7 +16,7 @@ int main(void) {
 	std::ios::sync_with_stdio(false);
 
 	int n;
-
+	
 	std::cin >> n;
 	Pos* arr = new Pos[n];
 	for (int i = 0; i < n; i++) {
@@ -32,10 +33,10 @@ int main(void) {
 }
 
 bool Pos::operator<(const Pos& p) const {
-	if (this->x < p.x) {
+	if (this->y < p.y) {
 		return true;
 	}
-	else if (this->x == p.x && this->y < p.y) {
+	else if (this->y == p.y && this->x < p.x) {
 		return true;
 	}
 	else {
@@ -44,10 +45,10 @@ bool Pos::operator<(const Pos& p) const {
 }
 
 bool Pos::operator>(const Pos& p) const {
-	if (this->x > p.x) {
+	if (this->y > p.y) {
 		return true;
 	}
-	else if (this->x == p.x && this->y > p.y) {
+	else if (this->y == p.y && this->x > p.x) {
 		return true;
 	}
 	else {
@@ -63,7 +64,7 @@ void quickSort(Pos* arr, int l, int r) {
 
 		int pivot = dis(gen);
 		swap(arr, l, pivot);
-		
+
 		int i = l, j = r + 1;
 		while (i < j) {
 			for (i++; i <= r && arr[i] < arr[l]; i++);
